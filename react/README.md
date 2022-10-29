@@ -6,5 +6,5 @@ react demo during study
 
 - [x] TodoList
 - [x] GithubSearch
-- [ ] Navigator
+- [x] Navigator(ReactRouter6)
 - [x] Redux  
