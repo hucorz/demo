@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="d3.min.js" ></script>
+    <title>Document</title>
+</head>
+<body>
+    <svg width="1800" height="900"></svg>
+    <script>
+        let points = [[500, 500], [700, 700]];
+        let lineGenerator = d3.line();
+        const mainGroup = d3.select('svg').append('g');
+        const line = d3.line().x(d => d[0]).y(d => d[1])
+
+        function updatePoint() {
+            let transition = d3.transition().duration(1000).ease(d3.easeLinear);
+            mainGroup.selectAll('circle').data(points).join('circle')
+            .transition(transition).attr('cx', d => d[0]).attr('cy', d => d[1]);
+        }
+
+        function updateLine() {
+            let transition = d3.transition().duration(1000).ease(d3.easeLinear);
+            let lines = [points]
+            mainGroup.selectAll('path').data(lines).join('path')
+            .transition(transition).attr('d', line).attr('stroke', 'black');
+        }
+        function update() {
+            setInterval(() => {
+                points = [[Math.random()*1600+100, Math.random()*700+100], 
+                          [Math.random()*1600+100, Math.random()*700+100]];
+                updatePoint();
+                updateLine();
+            }, 1000)         
+        }
+        mainGroup.selectAll('circle').data(points).join('circle')
+            .attr('r', 10).attr('cx', d => d[0]).attr('cy', d => d[1]);
+        let lines = [points]
+        mainGroup.selectAll('path').data(lines).join('path')
+            .attr('d', line).attr('stroke', 'black');
+
+        update();
+    </script>
+</body>
+</html>
