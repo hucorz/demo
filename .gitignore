@@ -1,0 +1,53 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build and Dependency Folders
+dist/
+build/
+out/
+.cache/
+.next/
+.nuxt/
+.vscode/
+.idea/
+
+# Compiled Output
+*.min.css
+*.min.js
+
+# Log Files
+*.log
+
+# macOS
+.DS_Store
+
+# Thumbnails
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Temporary files
+*.swp
+*.swo
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Jest coverage directory
+/coverage
+
+# Storybook generated output
+/storybook-static/
+
+# Cypress generated output
+/cypress/videos/
+/cypress/screenshots/
+/cypress/reports/
